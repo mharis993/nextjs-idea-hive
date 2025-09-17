@@ -3,10 +3,10 @@ import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-// import { Author, Startup } from "@/sanity/types";
+import { Author, Startup } from "@/sanity/types";
 // import { Skeleton } from "@/components/ui/skeleton";
 
-// export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
@@ -41,8 +41,8 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src={"https://images.unsplash.com/photo-1563207153-f403bf289096?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9ib3RzfGVufDB8fDB8fHww"}
-            alt={author?.name}
+            src={author?.image || ""}
+            alt={author?.name || "author name"}
             width={48}
             height={48}
             className="rounded-full"
